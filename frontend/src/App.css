@@ -537,3 +537,224 @@ footer > span:last-child { display: flex; align-items: center; gap: 7px; }
   footer { align-items: flex-start; flex-direction: column; }
   .activity-list { padding: 0 13px 7px; }
 }
+/* Four-way traffic intersection */
+.traffic-scene {
+  position: relative;
+  min-height: 390px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #f2f4f5;
+  border: 1px solid #e1e5e8;
+  border-radius: 10px;
+  color: #273342;
+}
+
+.traffic-road {
+  position: absolute;
+  z-index: -1;
+  background: #56616d;
+}
+
+.traffic-road-horizontal {
+  top: 29%;
+  bottom: 22%;
+  left: 0;
+  right: 0;
+}
+
+.traffic-road-vertical {
+  top: 0;
+  bottom: 0;
+  left: 32%;
+  right: 32%;
+}
+
+.traffic-road-horizontal::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  border-top: 2px dashed #d4d9dc;
+}
+
+.traffic-road-vertical::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  border-left: 2px dashed #d4d9dc;
+}
+
+.traffic-center {
+  position: absolute;
+  top: 29%;
+  bottom: 22%;
+  left: 32%;
+  right: 32%;
+  border: 1px solid #e5e7eb;
+  background: #616d77;
+}
+
+.lane-divider {
+  position: absolute;
+  display: block;
+  background: #e2c879;
+  opacity: .9;
+}
+
+.lane-divider-horizontal {
+  height: 2px;
+  left: 0;
+  right: 0;
+  top: 50%;
+}
+
+.lane-divider-vertical {
+  width: 2px;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+}
+
+.traffic-count {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 9px;
+  background: #fff;
+  border: 1px solid #dce2e7;
+  border-radius: 6px;
+  font-size: 10px;
+  box-shadow: 0 1px 3px #15202b12;
+}
+
+.traffic-count strong {
+  font-size: 11px;
+}
+
+.traffic-count span {
+  color: #637181;
+}
+
+.count-north { top: 8px; left: 50%; transform: translateX(-50%); }
+.count-south { bottom: 42px; left: 50%; transform: translateX(-50%); }
+.count-east { right: 8px; top: 48%; }
+.count-west { left: 8px; top: 48%; }
+
+.traffic-signal {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 4px;
+  background: #28313b;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px #0003;
+}
+
+.signal-north { top: 24%; left: 35%; }
+.signal-south { bottom: 17%; right: 35%; }
+.signal-east { top: 34%; right: 29%; }
+.signal-west { bottom: 30%; left: 29%; }
+
+.signal-light {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #65717d;
+}
+
+.light-green { background: #4fb77b; box-shadow: 0 0 5px #4fb77b66; }
+.light-red { background: #e35d5b; box-shadow: 0 0 5px #e35d5b55; }
+.light-amber { background: #d7a84a; opacity: .35; }
+
+.traffic-vehicles {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  gap: 5px;
+}
+
+.vehicles-north {
+  top: 17%;
+  left: 39%;
+  flex-direction: column;
+}
+
+.vehicles-south {
+  bottom: 24%;
+  right: 39%;
+  flex-direction: column;
+}
+
+.vehicles-east { right: 17%; top: 40%; }
+.vehicles-west { left: 17%; bottom: 37%; }
+
+.traffic-car {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 30px;
+  border: 1px solid #ffffffa8;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px #0003;
+}
+
+.car-blue { background: #7caddc; color: #193d5d; }
+.car-white { background: #f8fafc; color: #475569; }
+.car-amber { background: #e7c17a; color: #634716; }
+
+.traffic-phase {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 8px;
+  background: #fff;
+  border: 1px solid #dce2e7;
+  border-radius: 6px;
+  font-size: 10px;
+}
+
+.traffic-phase button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 24px;
+  margin-left: 4px;
+  color: #344456;
+  background: #f2f4f7;
+  border: 1px solid #dce2e7;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.phase-active { background: #39966a; }
+
+.traffic-scene-caption {
+  position: absolute;
+  right: 10px;
+  bottom: 15px;
+  color: #667382;
+  font-size: 9px;
+  letter-spacing: .04em;
+  text-align: right;
+}
+
+@media (max-width: 560px) {
+  .traffic-scene { min-height: 350px; }
+  .traffic-count { padding: 5px 6px; }
+  .traffic-count span { font-size: 9px; }
+  .traffic-scene-caption { max-width: 130px; line-height: 1.5; }
+  .vehicles-east { right: 12%; }
+  .vehicles-west { left: 12%; }
+}
