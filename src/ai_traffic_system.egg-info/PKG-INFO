@@ -1,0 +1,26 @@
+Metadata-Version: 2.4
+Name: ai-traffic-system
+Version: 0.1.0
+Summary: A lightweight AI traffic management research project
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0; extra == "dev"
+
+# AI Traffic System
+
+An AI-powered traffic management system designed to improve traffic monitoring, congestion detection, and traffic flow management.
+
+## Features
+
+- AI-based traffic monitoring
+- Traffic congestion analysis
+- Intelligent traffic management
+
+## Project Status
+
+Work in progress.
+
+## Getting Started
+
+Project setup and installation instructions will be added as development progresses.
